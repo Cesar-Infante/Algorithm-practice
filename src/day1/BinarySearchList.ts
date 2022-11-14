@@ -1,5 +1,4 @@
 export default function bs_list(haystack: number[], needle: number): boolean {
-    // lo is inclusive (+1) high is exclusive
     // search(arr, lo, hi) needle
     // do {
     // mid = lo + (hi - lo) / 2
@@ -11,7 +10,6 @@ export default function bs_list(haystack: number[], needle: number): boolean {
     // else
     // lo = mid + 1
     // } while (lo < hi)
-    // return false || -1
 
     let lo = 0;
     let hi = haystack.length;
@@ -23,12 +21,15 @@ export default function bs_list(haystack: number[], needle: number): boolean {
         let value = haystack[mid];
 
         if (value === needle) {
+            // return true || the current index
             return true;
         } else if (value > needle) {
-            hi = mid; 
+            hi = mid;
         } else {
+            // lo is inclusive (+1) high is exclusive
             lo = mid + 1;
         }
     } while (lo < hi);
+    // return false || -1
     return false;
 }
